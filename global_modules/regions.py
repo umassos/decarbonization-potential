@@ -3,11 +3,11 @@ import json
 import os 
  
 curr_dir = os.path.dirname(__file__)
-raw_data_dir = os.path.join(curr_dir, '..', 'rawdata')
+shared_data_dir = os.path.join(curr_dir, '..', 'shared_data')
 static_file_dir = os.path.join(curr_dir, 'static_files')
 
-order_file = os.path.join(raw_data_dir, 'mean_order.json')
-mean_file = os.path.join(raw_data_dir, 'mean_stats.csv')
+order_file = os.path.join(shared_data_dir, 'mean_order.json')
+mean_file = os.path.join(shared_data_dir, 'mean_stats.csv')
 
 region_grouping_file = os.path.join(static_file_dir, 'name_stats.csv')
 provider_regions_file = os.path.join(static_file_dir,'data_regions.csv')

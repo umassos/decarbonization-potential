@@ -19,7 +19,7 @@ def get_flag(zonecode, size=16):
     # im = im.
     return im
 
-def offset_image(coord, name, ax, y=-120):
+def offset_image(coord, name, ax, y=0):
 
     name = name.split("-")[0]
     img = get_flag(name)
@@ -27,7 +27,7 @@ def offset_image(coord, name, ax, y=-120):
     im.set(width=7,height=11)
     im.image.axes = ax
 
-    # ab = AnnotationBbox(im, (coord, 0),  xybox=(0, -14.), frameon=False,
+    # ab = AnnotationBbox(im, (coord, -120),  xybox=(0, -14.), frameon=False,
     #                     xycoords='data',  boxcoords="offset points", pad=0)
     ab = AnnotationBbox(im, (coord, y),  xybox=(0, -14.), frameon=False,
                         xycoords='data',  boxcoords="offset points", pad=0)
