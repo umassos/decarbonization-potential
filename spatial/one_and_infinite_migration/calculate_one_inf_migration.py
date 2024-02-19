@@ -14,7 +14,7 @@ combined_carbon_file = os.path.join( '../..', 'shared_data/combined_carbon.csv')
 
 year = 2022
 groupings = ["Asia", "Americas", "Global", "Europe", "Oceania"]
-# groupings = ["USA"]
+
 carbon_df = pd.read_csv(combined_carbon_file)
 carbon_df = format_df.get_year_df(carbon_df, selected_year=year)
 

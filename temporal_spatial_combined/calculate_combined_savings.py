@@ -19,8 +19,8 @@ carbon_df = format_df.get_year_df(carbon_df, selected_year=year)[zone_code_list]
 temporal_data_dir = f'../temporal/data_output/absolute_slack_{year}_processed/abs'
 save_to_dir = 'data_output'
 
-job = 1
-slack_list = [24*365, 24]
+job = 1 # can change this
+slack_list = [24*365, 24] # can change this
 
 for slack in slack_list:
 

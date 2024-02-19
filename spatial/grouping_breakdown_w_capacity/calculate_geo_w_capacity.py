@@ -13,11 +13,12 @@ import format_df
 combined_carbon_file = os.path.join( '../..', 'shared_data/combined_carbon.csv')
 
 year = 2022 
-global_avg = 368.39
 carbon_df = pd.read_csv(combined_carbon_file)
 carbon_df = format_df.get_year_df(carbon_df, selected_year=year) # only for the selected year
+
 all_region_mean = carbon_df.mean()
 all_region_mean  = all_region_mean.sort_values() # sort region from lowest to highest mean
+
 zone_code_list = all_region_mean.index
 carbon_df = carbon_df[zone_code_list] 
 

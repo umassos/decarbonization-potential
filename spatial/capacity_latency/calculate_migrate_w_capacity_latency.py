@@ -37,6 +37,8 @@ latency_df = latency_df[latency_df.index.isin(zone_code_list)]
 latency_limit_list = [i for i in range(50, 301, 50)]
 latency_limit_list.insert(0,5)
 
+
+# change this parameter for different idle capacities 
 idle_cap_list = [0,50, 99] #99% ~infinite capacity, since all jobs can move there
 region_count = len(zone_code_list)
 max_util = 100
@@ -60,7 +62,6 @@ for idle_cap_percent in idle_cap_list:
             origin_mean = all_region_mean.loc[origin]
 
             allowed_regions = origin_latency_list[origin_latency_list <= latency_lim] # allowed destination
-            # dest_mean = all_region_mean.loc[allowed_regions.index].min()
 
             sorted_allowed_regions_mean = list(all_region_mean.loc[allowed_regions.index].sort_values().index)
 
@@ -87,10 +88,8 @@ for idle_cap_percent in idle_cap_list:
             allocation[origin_index] = work_per_dc
 
         emissions = (allocation * all_region_mean.loc[zone_code_list])/total_work 
-        # print(emissions)
 
         allocation_df.loc[latency_lim, idle_cap_percent] = emissions.sum()
 
-print(allocation_df)
 allocation_df.index.name = 'latency'
 allocation_df.to_csv("emissions.csv")

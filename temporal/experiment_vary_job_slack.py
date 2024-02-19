@@ -25,12 +25,12 @@ absolute = True # if then proportional slack
 if absolute:
     modetag = f"absolute_slack_{year}"
     # slacklist = [24,24*7, 24*20,24*30,24*365] # absolute slack
-    slacklist = [24*365] # absolute slack
+    slack_list = [24*365] # absolute slack, can change this
 else:
     modetag = f"proportional_slack_{year}"
-    slacklist = [i for i in range(1,10+1)] # proportional slack
+    slack_list = [i for i in range(1,10+1)] # proportional slack, can change this
 
-joblengthlist  = [1,6,12,24,48,96,168]
+job_length_list  = [1,6,12,24,48,96,168] # can change this
 
 save_to_dir = f"{main_output_dir}/{modetag}"
 check_dir(save_to_dir)
@@ -90,10 +90,10 @@ def task(zone_code, job, slack, slackdir):
 
 if __name__ == "__main__":
     with concurrent.futures.ProcessPoolExecutor(max_workers=50) as executor:
-        for job in joblengthlist: 
+        for job in job_length_list: 
             jobdir = f"{save_to_dir}/job_{job}"
             check_dir(jobdir)
-            for slack in slacklist:
+            for slack in slack_list:
                 slackdir = f"{jobdir}/slack_{slack}"
                 check_dir(slackdir)
                 for zonecode in zone_code_list: 
