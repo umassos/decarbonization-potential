@@ -17,18 +17,14 @@ savetodir = 'plot_output'
 
 data_df = pd.read_csv(file_path, index_col='zonecode').rename_axis(None)
 
-idle_cap = 50 # in percent 
-# idle_cap = 99
+idle_cap = 50 # in percent we use 50 and 99 in our paper 
 
-# groupings = ["Oceania", "Europe" ,"Asia", "Americas", "Global",]
 groupings = ["Asia", "Americas" ,"Global", "Europe", "Oceania",]
 
 combined_df = pd.DataFrame(index=["avg", "std"])
 
 
 global_baseline = data_df['0'].sum()
-# print(data_df['0'])
-# exit()
 
 for grouping in groupings: 
 
@@ -38,18 +34,11 @@ for grouping in groupings:
 
     zero_idle_emissions =  member_emission_df['0']
     w_idle_emissions =  member_emission_df[str(idle_cap)]
-    # abs_savings =  (zero_idle_emissions - w_idle_emissions).sum()
-    # normalized_savings = (abs_savings/global_baseline)*100
-
 
     region_savings = zero_idle_emissions - w_idle_emissions
     region_savings /= global_baseline
     region_savings *= 100
 
-
-    # local_baseline = zero_idle_emissions.sum()
-
-    # mean_savings = (region_savings.sum()/global_baseline)*100
     mean_savings = region_savings.sum()
 
 
@@ -58,7 +47,6 @@ for grouping in groupings:
     combined_df.loc["avg", grouping] = mean_savings
     combined_df.loc["std", grouping] = std_savings 
 combined_df = combined_df.T
-print(combined_df)
 
 sns.set()
 sns.set_style('ticks')
@@ -92,8 +80,6 @@ ax.tick_params(left=False, bottom=False)
 ax.set_xticklabels(ax.get_xticklabels(), rotation=360,fontsize=ticklabelsize)
 ax.spines[['right', 'top']].set_visible(False)
 
-# adjust for sizes in the paper
-ax.set_xlabel("Global Idle Capacity (%)",fontsize=mainlabelsize, color='#FFFF')
 savename = f"{savetodir}/one_migration_w_cap_{idle_cap}"
 plt.tight_layout()
 plt.savefig(savename, dpi=300, bbox_inches='tight',pad_inches = 0.1)
