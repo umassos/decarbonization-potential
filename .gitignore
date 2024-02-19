@@ -4566,9 +4566,6 @@ temporal/data_output/absolute_slack_2022_processed/abs/job_96/slack_8760/combine
 temporal/data_output/absolute_slack_2022_processed/abs/job_96/slack_8760/interrupt.csv
 temporal/data_output/absolute_slack_2022_processed/abs/job_96/slack_8760/non_interrupt.csv
 temporal/data_output/absolute_slack_2022_processed/abs/job_96/slack_8760/slack0.csv
-temporal/weighted_job_length/data_output/azure/mean.csv
-temporal/weighted_job_length/data_output/azure/std.csv
-temporal/weighted_job_length/data_output/equal/mean.csv
-temporal/weighted_job_length/data_output/equal/std.csv
-temporal/weighted_job_length/data_output/gcp/mean.csv
-temporal/weighted_job_length/data_output/gcp/std.csv
+shared_data/raw_gcp_latency.csv
+shared_data/combined_carbon.csv
+shared_data/gcp_latency_matrix.csv

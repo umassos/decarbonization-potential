@@ -45,7 +45,6 @@ for region in selected_regions:
 
     zone_df = pd.read_csv(absfile)
     df = format_df.get_year_df(zone_df)
-    # df = zone_df[columns].replace(np.nan, 0)
 
     total_production = df[combined_cols].sum(axis=1)#.sum()
 
