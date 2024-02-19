@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 import seaborn as sns 
 import sys
 import os 
@@ -24,7 +25,9 @@ groupings = ["Asia", "Americas" ,"Global", "Europe", "Oceania",]
 combined_df = pd.DataFrame(index=["avg", "std"])
 
 
-global_baseline = data_df['0'].sum()
+# global_baseline = data_df['0'].sum()
+global_baseline = data_df['0'].mean().mean()
+
 
 for grouping in groupings: 
 
@@ -39,7 +42,7 @@ for grouping in groupings:
     region_savings /= global_baseline
     region_savings *= 100
 
-    mean_savings = region_savings.sum()
+    mean_savings = region_savings.mean()
 
 
     std_savings = region_savings.sem()
@@ -70,15 +73,16 @@ combined_df["avg"].plot.bar(ax=ax,
                    edgecolor="k")
 
 y_lower = 0
-y_upper = 100
+y_upper = 200
+step = 50
 
 plt.ylim([y_lower, y_upper])
+plt.yticks(np.arange(y_lower, y_upper+1, step))
 
 ax.set_ylabel(r"Global CO$_2$. Savings (%)",fontsize=mainlabelsize)
 ax.tick_params(left=False, bottom=False)
 
 ax.set_xticklabels(ax.get_xticklabels(), rotation=360,fontsize=ticklabelsize)
-ax.spines[['right', 'top']].set_visible(False)
 
 savename = f"{savetodir}/one_migration_w_cap_{idle_cap}"
 plt.tight_layout()

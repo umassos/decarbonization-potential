@@ -11,7 +11,9 @@ We run this experiment with
 #### Python Modules 
 * pandas
 * numpy 
+* scikit-learn
 * matplotlib 
+* seaborn
 
 We generated [requirement.txt](requirement.txt) for the required python modules. <br>
 We suggest to create a Python virtual environment and install modules inside of this virtual environment.
