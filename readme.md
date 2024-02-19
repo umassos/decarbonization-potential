@@ -27,7 +27,7 @@ To install the requirements run ```pip install -r requirements.txt```
 
 * **Google Latency**: https://lookerstudio.google.com/reporting/fc733b10-9744-4a72-a502-92290f608571/page/p_854mo2jmcd
 
-* **Google Trace**: https://blog.research.google/2010/01/google-cluster-data.html
+* **Google Trace**: https://github.com/google/cluster-data 
 * **Azure Trace**: https://github.com/Azure/AzurePublicDataset
 
 ****
