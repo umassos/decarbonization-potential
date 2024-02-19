@@ -1,6 +1,10 @@
 ## Carbon Savings Upper Bound Analysis
 
+### Virtual Environment
 
+To install the requirements ```pip install -r requirements.txt```
+
+****
 The raw data can be obtained from Electriciy Maps 
 https://www.electricitymaps.com/data-portal
 ****
