@@ -17,8 +17,8 @@ Required file: Carbon intensity signal from Electricity Maps
 
 ***
 ### Periodicty Score
-Required file: Periodicty score 
+Required file: Periodicity score 
 
-The periodicity score of the trace can be calculated using https://azure.microsoft.com/en-us/products/data-explorer
+The periodicity score of the trace can be calculated using https://azure.microsoft.com/en-us/products/data-explorer. The score is derived from azure's ```series_peroids_detect()```
 
 [periodicity_score](periodicity/periodicity_score.py): Plots the periodicity scores with country flags.

@@ -5,7 +5,8 @@
 
 The outputs from 1 and 2 are in ```data_output```
 
-3. Calculate and plot different dimensions in the subdirectories.
+3. Calculate and plot different dimensions in the subdirectories (i.e.run the script inside each directory).
+
 ***
 ### Sub-directories
 All Required file: from 2.
@@ -17,3 +18,4 @@ All Required file: from 2.
 * Require an additional data: the weights for each job length based on the workload trace 
 * **Google Trace**: https://blog.research.google/2010/01/google-cluster-data.html
 * **Azure Trace**: https://github.com/Azure/AzurePublicDataset
+* Depending on the work load trace, you are unlikely to get the exact same results as the paper

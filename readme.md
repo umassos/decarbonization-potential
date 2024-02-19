@@ -1,8 +1,22 @@
 ## Carbon Savings Upper Bound Analysis
+The aim of this repository is to provide source code for to reproduce the results of the following work: 
+***On the Limitations of Carbon-Aware Temporal and Spatial Workload Shifting in the Cloud***.
+***
 
-### Virtual Environment
+### Configurations 
+We run this experiment with 
+* Ubuntu 20.04.6
+* Python 3.8.10
 
-To install the requirements ```pip install -r requirements.txt```
+#### Python Modules 
+* pandas
+* numpy 
+* matplotlib 
+
+We generated [requirement.txt](requirement.txt) for the required python modules. <br>
+We suggest to create a Python virtual environment and install modules inside of this virtual environment.
+
+To install the requirements run ```pip install -r requirements.txt```
 
 ****
 
@@ -26,10 +40,16 @@ To install the requirements ```pip install -r requirements.txt```
 [sample_trace](sample_trace): sample carbon intensity trace to show variation across time and regions and the regions' respective energy mix. <br>
 [trace_analysis](trace_analysis): mean and cv, change over time, periodicity score <br>
 [spatial](spatial): grouping breakdown, global idle capacity, capacity and latency, one and infinite migration <br>
-[temporal](temporal): deferrability, interruptibility, combined deferrability and interruptibility, weighted job leghts, vary slack <br>
+[temporal](temporal): deferrability, interruptibility, combined deferrability and interruptibility, weighted job legths, vary slack <br>
 [temporal_spatial_combined](temporal_spatial_combined): combined savings for temporal and spatial*
 
 More details about the experiments are described in their respective diretories.
+
+Note that for any experiment/plotting script the code should be **run inside** that directory.
+
+To run any experiment, to go its directory and run
+```python3 <file_name>```
+
 ****
 
 ### Non-Experiment Directories 

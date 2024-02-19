@@ -12,6 +12,7 @@ Required files can be procssed using the scripts in [prep_rawdata](../prep_rawda
 * Change ```idle_cap_list``` variable in for [calculate_global_idle_capacity.py](global_idle_capacity/calculate_global_idle_capacity.py) for different idle capacity.
 
 ### Grouping Breakdown with Capacity
+
 * Required files: Combined carbon file
 * Change ```idle_cap_list``` variable in for [calculate_geo_w_capacity.py](grouping_breakdown_w_capacity/calculate_geo_w_capacity.py) for different idle capacity.
 
