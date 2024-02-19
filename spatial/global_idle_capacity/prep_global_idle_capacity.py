@@ -17,11 +17,11 @@ combined_carbon_file = os.path.join( '../..', 'shared_data/combined_carbon.csv')
 year = 2022
 
 zone_code_list =  regions.get_year_order(year)
-df = pd.read_csv(combined_carbon_file)
-df = format_df.get_year_df(df) # only for the selected year
-df = df[zone_code_list] 
+carbon_df = pd.read_csv(combined_carbon_file)
+carbon_df = format_df.get_year_df(carbon_df) # only for the selected year
+carbon_df = carbon_df[zone_code_list] 
 
-all_region_mean = df.mean()
+all_region_mean = carbon_df.mean()
 
 
 idle_cap_list = [i for i in range(0, 100, 10)]

@@ -27,8 +27,6 @@ def offset_image(coord, name, ax, y=0):
     im.set(width=7,height=11)
     im.image.axes = ax
 
-    # ab = AnnotationBbox(im, (coord, -120),  xybox=(0, -14.), frameon=False,
-    #                     xycoords='data',  boxcoords="offset points", pad=0)
     ab = AnnotationBbox(im, (coord, y),  xybox=(0, -14.), frameon=False,
                         xycoords='data',  boxcoords="offset points", pad=0)
 

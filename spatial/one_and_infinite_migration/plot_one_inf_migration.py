@@ -16,10 +16,6 @@ savetodir = 'plot_output'
 
 mean_df = pd.read_csv('savings_mean.csv', index_col='migration').rename_axis(None).T
 std_df = pd.read_csv('savings_std.csv', index_col='migration').rename_axis(None).T
-# max_df = pd.read_csv('savings_max.csv', index_col='migration').rename_axis(None).T
-# min_df = pd.read_csv('savings_min.csv', index_col='migration').rename_axis(None).T
-
-
 
 sns.set()
 sns.set_style('ticks')
@@ -67,20 +63,6 @@ for i, bar in enumerate(bars):
         h_counter += 1
 
 
-# min_df = mean_df - min_df
-# max_df = max_df - mean_df
-
-# bar_min_maxs = np.vstack((list(zip(min_df['one'], max_df['one'])),
-#                           list(zip(min_df['inf'], max_df['inf']))))
-
-# print(bar_min_maxs)
-# assert len(bar_min_maxs) == len(ax.patches)
-
-# for patch, (min_y, max_y) in zip(ax.patches, bar_min_maxs):
-#     plt.vlines(patch.get_x() + patch.get_width()/2,
-#                min_y, max_y, color='k')
-
-
 plt.legend(
     custom_legend, legend_label, 
     bbox_to_anchor=(0.,0.83,1,0.2),
@@ -92,7 +74,7 @@ plt.legend(
     prop=dict(size=legendsize), 
     handletextpad=0.35, 
 )
-
+ax.spines[['right', 'top']].set_visible(False)
 y_lower = 0
 y_upper = 100
 step = 25

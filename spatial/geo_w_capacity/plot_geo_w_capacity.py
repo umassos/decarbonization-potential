@@ -20,12 +20,15 @@ data_df = pd.read_csv(file_path, index_col='zonecode').rename_axis(None)
 idle_cap = 50 # in percent 
 # idle_cap = 99
 
-groupings = ["Oceania", "Europe" ,"Asia", "Americas", "Global",]
+# groupings = ["Oceania", "Europe" ,"Asia", "Americas", "Global",]
+groupings = ["Asia", "Americas" ,"Global", "Europe", "Oceania",]
 
 combined_df = pd.DataFrame(index=["avg", "std"])
 
 
-baseline = data_df['0'].sum()
+global_baseline = data_df['0'].sum()
+# print(data_df['0'])
+# exit()
 
 for grouping in groupings: 
 
@@ -35,19 +38,24 @@ for grouping in groupings:
 
     zero_idle_emissions =  member_emission_df['0']
     w_idle_emissions =  member_emission_df[str(idle_cap)]
-    abs_savings =  (zero_idle_emissions - w_idle_emissions).sum()
-
-    normalized_savings = (abs_savings/baseline)*100
-
-    max_savings = normalized_savings.max()
-    min_savings = normalized_savings.min()
-  
+    # abs_savings =  (zero_idle_emissions - w_idle_emissions).sum()
+    # normalized_savings = (abs_savings/global_baseline)*100
 
 
-    member_savings = normalized_savings.mean()
-    # member_std = (abs_savings.std()/baseline)*100 # local based line
-    std_savings = ((zero_idle_emissions - w_idle_emissions).std()/baseline)*100
-    combined_df.loc["avg", grouping] = member_savings
+    region_savings = zero_idle_emissions - w_idle_emissions
+    region_savings /= global_baseline
+    region_savings *= 100
+
+
+    # local_baseline = zero_idle_emissions.sum()
+
+    # mean_savings = (region_savings.sum()/global_baseline)*100
+    mean_savings = region_savings.sum()
+
+
+    std_savings = region_savings.sem()
+
+    combined_df.loc["avg", grouping] = mean_savings
     combined_df.loc["std", grouping] = std_savings 
 combined_df = combined_df.T
 print(combined_df)
@@ -70,7 +78,7 @@ combined_df["avg"].plot.bar(ax=ax,
                    yerr=combined_df["std"], 
                    capsize=4, 
                    facecolor="#FFFFFF", 
-                   hatch=["","","","","//"], 
+                   hatch=["","","//","",""], 
                    edgecolor="k")
 
 y_lower = 0
@@ -82,6 +90,7 @@ ax.set_ylabel(r"Global CO$_2$. Savings (%)",fontsize=mainlabelsize)
 ax.tick_params(left=False, bottom=False)
 
 ax.set_xticklabels(ax.get_xticklabels(), rotation=360,fontsize=ticklabelsize)
+ax.spines[['right', 'top']].set_visible(False)
 
 # adjust for sizes in the paper
 ax.set_xlabel("Global Idle Capacity (%)",fontsize=mainlabelsize, color='#FFFF')
