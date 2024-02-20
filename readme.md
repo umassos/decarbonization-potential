@@ -76,7 +76,7 @@ The following are pre-processed and utility scripts organized in different direc
 [shared_data](shared_data): A directory that has files that are shared across multiple experiments.<br>
 [global_modules](global_modules): Contains helper functions, flag images, and fonts.
 
-Please, access the directories for more information.
+Please access the directories for more information.
 
 ### License
 * The Python codebase available in here follows the Apache v2 License unless otherwise stated.

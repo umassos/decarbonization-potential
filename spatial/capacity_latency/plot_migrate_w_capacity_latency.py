@@ -74,7 +74,7 @@ for i in range(100, 301, 50):
     xticks_str.append(str(i))
 plt.xticks(xticks_int, xticks_str   )
 plt.xlabel("Latency Limit (ms)",fontsize=14)
-plt.ylabel(r"Global CO$_2$ Savings (%)",fontsize=14)
+plt.ylabel(r"Global Avg. Savings (%)",fontsize=14)
 plt.tick_params(bottom=False,left=False)
 plt.legend(frameon=False, fontsize=12, 
            bbox_to_anchor=(-0.0,0.83,1,0.2),

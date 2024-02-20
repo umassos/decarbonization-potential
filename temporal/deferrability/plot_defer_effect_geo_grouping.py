@@ -16,7 +16,7 @@ import graph_templates
 
 
 mode = "absolute_slack"
-slack = 24
+slack = 24*365
 
 main_data_dir = f'data_output/{mode}'
 save_to_dir = 'plot_output'
@@ -91,7 +91,7 @@ plt.legend(
 )  
  
 plt.xlabel("Job Length (Hour)", fontsize=mainlabelsize )
-plt.ylabel(r"Avg. Defer Savings (%)", fontsize=mainlabelsize)
+plt.ylabel(r"Global Avg. Defer Savings (%)", fontsize=mainlabelsize)
 
 plt.xticks(joblist_corr, joblist_label,fontsize=ticklabelsize-2)
 plt.xlim([0,171])

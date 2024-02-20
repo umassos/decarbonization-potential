@@ -18,14 +18,14 @@ savetodir = 'plot_output'
 
 data_df = pd.read_csv(file_path, index_col='zonecode').rename_axis(None)
 
-idle_cap = 50 # in percent we use 50 and 99 in our paper 
+idle_cap = 99 # in percent we use 50 and 99 (for infinite capacity) in our paper 
+std_dev = False # yerr bars, if False then use standard error
 
 groupings = ["Asia", "Americas" ,"Global", "Europe", "Oceania",]
 
 combined_df = pd.DataFrame(index=["avg", "std"])
 
 
-# global_baseline = data_df['0'].sum()
 global_baseline = data_df['0'].mean().mean()
 
 
@@ -44,8 +44,10 @@ for grouping in groupings:
 
     mean_savings = region_savings.mean()
 
-
-    std_savings = region_savings.sem()
+    if std_dev: 
+        std_savings = region_savings.std()
+    else:
+        std_savings = region_savings.sem()
 
     combined_df.loc["avg", grouping] = mean_savings
     combined_df.loc["std", grouping] = std_savings 
@@ -79,12 +81,16 @@ step = 50
 plt.ylim([y_lower, y_upper])
 plt.yticks(np.arange(y_lower, y_upper+1, step))
 
-ax.set_ylabel(r"Global CO$_2$. Savings (%)",fontsize=mainlabelsize)
+ax.set_ylabel(r"Global Avg. Savings (%)",fontsize=mainlabelsize)
 ax.tick_params(left=False, bottom=False)
 
 ax.set_xticklabels(ax.get_xticklabels(), rotation=360,fontsize=ticklabelsize)
 
-savename = f"{savetodir}/one_migration_w_cap_{idle_cap}"
+if std_dev: 
+    file_tag = 'std_dev'
+else: 
+    file_tag = 'std_error'
+savename = f"{savetodir}/one_migration_w_cap_{idle_cap}_{file_tag}.pdf"
 plt.tight_layout()
 plt.savefig(savename, dpi=300, bbox_inches='tight',pad_inches = 0.1)
 plt.close()

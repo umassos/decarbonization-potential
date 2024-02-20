@@ -22,7 +22,8 @@ carbon_df = format_df.get_year_df(carbon_df, selected_year=year)
 all_region_mean = carbon_df.mean()
 
 combined_df_mean = pd.DataFrame(index=["one", "inf"]).rename_axis('migration')
-combined_df_std = pd.DataFrame(index=["one", "inf"]).rename_axis('migration')
+combined_df_std_dev = pd.DataFrame(index=["one", "inf"]).rename_axis('migration')
+combined_df_std_err = pd.DataFrame(index=["one", "inf"]).rename_axis('migration')
 
 for grouping in groupings: 
 
@@ -47,20 +48,27 @@ for grouping in groupings:
 
     one_migration_region_mean = one_migration_savings.mean()
     one_migration_savings_mean = one_migration_region_mean.mean()
-    one_migration_savings_std = one_migration_region_mean.sem() # standard error
+    one_migration_savings_std_err = one_migration_region_mean.sem() # standard error
+    one_migration_savings_std_dev = one_migration_region_mean.std() # standard deviation
     
     inf_migration_region_mean = one_migration_savings.mean()
     inf_migration_savings_mean = inf_migration_region_mean.mean()
-    inf_migration_savings_std = inf_migration_region_mean.sem() # standard error
+    inf_migration_savings_std_err = inf_migration_region_mean.sem() # standard error
+    inf_migration_savings_std_dev = inf_migration_region_mean.std() # standard deviation
     
 
     combined_df_mean.loc["one", grouping] = one_migration_savings_mean
     combined_df_mean.loc["inf", grouping] = inf_migration_savings_mean
 
     
-    combined_df_std.loc["one", grouping] = one_migration_savings_std
-    combined_df_std.loc["inf", grouping] = inf_migration_savings_std
+    combined_df_std_dev.loc["one", grouping] = one_migration_savings_std_dev
+    combined_df_std_dev.loc["inf", grouping] = inf_migration_savings_std_dev
+
+    
+    combined_df_std_err.loc["one", grouping] = one_migration_savings_std_err
+    combined_df_std_err.loc["inf", grouping] = inf_migration_savings_std_err
     
 
 combined_df_mean.to_csv(f'{save_to_dir}/savings_mean.csv')
-combined_df_std.to_csv(f'{save_to_dir}/savings_std.csv')
+combined_df_std_dev.to_csv(f'{save_to_dir}/savings_std_dev.csv')
+combined_df_std_err.to_csv(f'{save_to_dir}/savings_std_err.csv')

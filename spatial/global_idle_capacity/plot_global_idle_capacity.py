@@ -74,7 +74,7 @@ ax.set_xlim([y1_lower, 106])
 ax.set_yticks(percent_ticks)
 ax.spines[['right', 'top']].set_visible(False)
 ax.tick_params(left=False, bottom=False)
-ax.set_ylabel(r"Global CO$_2$. Savings (%)",fontsize=mainlabelsize)
+ax.set_ylabel(r"Global Avg. Savings (%)",fontsize=mainlabelsize)
 ax.set_xlabel("Global Idle Capacity (%)",fontsize=mainlabelsize)
 
 
@@ -83,8 +83,8 @@ plt.xticks(rotation=360,fontsize=ticklabelsize)
 plt.tick_params(left=False, bottom=False)
 ax.grid(alpha=0.7, zorder=-99)
 plt.tight_layout()
-# savename = f"{outputdir}/per_region_cap_percent_v2"
-savename = f"{savetodir}/global_idle_cap"
+
+savename = f"{savetodir}/global_idle_cap.pdf"
 plt.savefig(savename, dpi=300, bbox_inches='tight',pad_inches = 0.1)
 
 plt.close()

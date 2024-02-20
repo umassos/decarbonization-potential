@@ -1,6 +1,8 @@
 ## Spatial
-1. Calculate
-2. Plot
+
+Each experiment involves two steps:
+1. Calculate: run the script starts with ```calculate``` to process the data from 2. The calculated values from the experiment is stored in the ```data_output``` directory.
+2. Plot: run the script starts with ```plot``` to plot the data in ```data_output```. The plot output will be in the ```plot_output``` directory.
 
 Required files can be procssed using the scripts in [prep_rawdata](../prep_rawdata)
 ### Capacity and Latency

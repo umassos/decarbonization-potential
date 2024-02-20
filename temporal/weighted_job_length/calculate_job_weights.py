@@ -9,7 +9,7 @@ sys.path.append(moduledir)
 from check_dir import check_dir
 import regions
 
-weight_mode = 'gcp' # equal, azure, gcp
+weight_mode = 'equal' # equal, azure, gcp
 mode = "absolute_slack"
 
 main_data_dir = f'../data_output/{mode}_2022_processed/abs'
@@ -34,7 +34,8 @@ weight_dict = {
 weight_list = weight_dict[weight_mode]
 
 combined_mean_df = pd.DataFrame(index=slack_list,columns=groupings).rename_axis("slack")
-combined_std_df = pd.DataFrame(index=slack_list,columns=groupings).rename_axis("slack")
+combined_std_dev_df = pd.DataFrame(index=slack_list,columns=groupings).rename_axis("slack")
+combined_std_err_df = pd.DataFrame(index=slack_list,columns=groupings).rename_axis("slack")
 for row, slack in enumerate(slack_list): 
     for g in groupings: 
 
@@ -74,12 +75,17 @@ for row, slack in enumerate(slack_list):
         group_saved_emissions *= 100
         
         group_mean = group_saved_emissions.mean()
-        group_std = group_saved_emissions.sem()
+        group_std_err = group_saved_emissions.sem()
+        group_std_dev = group_saved_emissions.std()
 
         combined_mean_df.loc[slack,g] = group_mean
-        combined_std_df.loc[slack,g] = group_std
+        combined_std_err_df.loc[slack,g] = group_std_err
+        combined_std_dev_df.loc[slack,g] = group_std_dev
 
-meanname = f"{new_mode_dir}/mean.csv"
-stdname = f"{new_mode_dir}/std.csv"
-combined_mean_df.to_csv(meanname)
-combined_std_df.to_csv(stdname)
+mean_name = f"{new_mode_dir}/mean.csv"
+std_dev_name = f"{new_mode_dir}/std_dev.csv"
+std_err_name = f"{new_mode_dir}/std_err.csv"
+
+combined_mean_df.to_csv(mean_name)
+combined_std_dev_df.to_csv(std_dev_name)
+combined_std_err_df.to_csv(std_err_name)

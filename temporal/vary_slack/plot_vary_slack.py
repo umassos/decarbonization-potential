@@ -82,7 +82,7 @@ plt.legend(
 
 slack_list = list(df.index)
 plt.xlabel("Slack", fontsize=mainlabelsize )
-plt.ylabel(r"Global CO$_2$ Savings (%)", fontsize=mainlabelsize)
+plt.ylabel(r"Global Avg. Savings (%)", fontsize=mainlabelsize)
 
 plt.yticks(fontsize=ticklabelsize)
 plt.xticks(slack_list, slack_list)

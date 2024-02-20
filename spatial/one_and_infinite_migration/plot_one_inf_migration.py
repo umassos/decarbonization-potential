@@ -12,10 +12,16 @@ sys.path.append(global_module)
 
 import graph_templates 
 
+datadir = 'data_output'
 savetodir = 'plot_output'
+std_dev = False # yerr bars, if False then use standard error
 
-mean_df = pd.read_csv('data_output/savings_mean.csv', index_col='migration').rename_axis(None).T
-std_df = pd.read_csv('data_output/savings_std.csv', index_col='migration').rename_axis(None).T
+mean_df = pd.read_csv(f'{datadir}/savings_mean.csv', index_col='migration').rename_axis(None).T
+
+if std_dev:
+    std_df = pd.read_csv(f'{datadir}/savings_std_dev.csv', index_col='migration').rename_axis(None).T
+else: 
+    std_df = pd.read_csv(f'{datadir}/savings_std_err.csv', index_col='migration').rename_axis(None).T
 
 sns.set()
 sns.set_style('ticks')
@@ -71,18 +77,27 @@ plt.legend(
     prop=dict(size=legendsize), 
     handletextpad=0.35, 
 )
+
+
+if std_dev: 
+    file_tag = 'std_dev'
+    y_upper = 125
+else: 
+    file_tag = 'std_error'
+    y_upper = 100
+
 y_lower = 0
-y_upper = 100
 step = 25
 plt.tick_params(left=False, bottom=False)
 plt.xticks(rotation=360,fontsize=ticklabelsize+2)
 plt.yticks(np.arange(y_lower,y_upper+1,step),fontsize=ticklabelsize)
-plt.ylabel(r"Global CO$_2$ Savings (%)",fontsize=14)
+plt.ylabel(r"Global Avg. Savings (%)",fontsize=14)
 plt.xlabel("Latency Limit (ms)",fontsize=14, color="#FFFF")
 
 plt.ylim([y_lower,y_upper])
 
-savename = f"{savetodir}/migrate_geo_lowest.pdf"
+
+savename = f"{savetodir}/migrate_geo_lowest_{file_tag}.pdf"
 plt.tight_layout()
 plt.savefig(savename, dpi=300, bbox_inches='tight',pad_inches = 0.1)
 plt.close()

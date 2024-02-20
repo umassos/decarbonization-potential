@@ -11,15 +11,19 @@ sys.path.append(moduledir)
 from check_dir import check_dir
 import graph_templates
 
-weight_mode = 'gcp' # equal, azure, gcp
+weight_mode = 'azure' # equal, azure, gcp
 slack = 24*365
+std_dev = False # yerr bars, if False then use standard error
 
 main_data_dir = f'data_output/{weight_mode}'
 save_to_dir = f'plot_output/{weight_mode}'
 check_dir(save_to_dir)
 
 mean_file = os.path.join(main_data_dir, "mean.csv")
-std_file = os.path.join(main_data_dir, "std.csv")
+if std_dev:
+    std_file = os.path.join(main_data_dir, "std_dev.csv")
+else:
+    std_file = os.path.join(main_data_dir, "std_err.csv")
 
 mean_df = pd.read_csv(mean_file, index_col="slack").rename_axis(None)
 std_df = pd.read_csv(std_file, index_col="slack").rename_axis(None)
@@ -44,12 +48,16 @@ mean_df.plot.bar(ax=ax,
 plt.tick_params(left=False, bottom=False)
 plt.xticks(rotation=360)
 plt.ylim([0,100])
-plt.ylabel(r"Global CO$_2$ Savings (%)",fontsize=14)
+plt.ylabel(r"Global Avg. Savings (%)",fontsize=14)
 plt.xlabel("Slack",fontsize=14, color="#FFFF")
 
 plt.tight_layout()
+if std_dev: 
+    file_tag = 'std_dev'
+else: 
+    file_tag = 'std_error'
 
-savename = os.path.join(save_to_dir, f"slack_{slack}.pdf")
-# savename = os.path.join(save_to_dir, f"slack_{slack}")
+savename = os.path.join(save_to_dir, f"{weight_mode}_slack_{slack}_{file_tag}.pdf")
+
 plt.savefig(savename, dpi=300, bbox_inches='tight',pad_inches = 0.1)
 plt.close()
