@@ -44,7 +44,7 @@ for region in selected_regions:
     absfile = f"{rawdatadir}/{region}.csv"
 
     zone_df = pd.read_csv(absfile)
-    df = format_df.get_year_df(zone_df)
+    df = format_df.get_year_df(zone_df, selected_year=2022)
 
     total_production = df[combined_cols].sum(axis=1)#.sum()
 
@@ -62,4 +62,4 @@ combined_df = combined_df.T
 combined_df["fossil fuels"] = combined_df[["unknown", "biomass", "oil", "coal", "unknown", "gas"]].sum(axis=1) 
 combined_df = combined_df[["hydro", "solar","wind", "nuclear", "fossil fuels"]]
 combined_df.index.name = 'name'
-combined_df.to_csv("energy_mix.csv")
+combined_df.to_csv("data_output/energy_mix.csv")

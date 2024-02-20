@@ -12,7 +12,7 @@ sys.path.append(moduledir)
 
 import graph_templates
 
-rawfile = "carbon_sample.csv"
+rawfile = "data_output/carbon_sample.csv"
 savetodir = "plot_output"
 colorlist = ["royalblue","violet", "seagreen","firebrick" ]
 

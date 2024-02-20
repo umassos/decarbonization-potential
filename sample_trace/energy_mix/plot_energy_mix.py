@@ -13,7 +13,7 @@ sys.path.append(moduledir)
 
 import graph_templates
 
-file_path = 'energy_mix.csv'
+file_path = 'data_output/energy_mix.csv'
 savetodir = 'plot_output'
 
 raw_df = pd.read_csv(file_path, index_col='name').rename_axis(None)
