@@ -13,7 +13,7 @@ sys.path.append(global_module)
 import regions
 import graph_templates 
 
-file_path = 'emissions.csv'
+file_path = 'data_output/emissions.csv'
 savetodir = 'plot_output'
 
 data_df = pd.read_csv(file_path, index_col='zonecode').rename_axis(None)

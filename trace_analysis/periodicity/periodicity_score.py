@@ -16,7 +16,7 @@ import regions
 import get_flags
 
 
-file_path = 'periodicity_score.csv'
+file_path = 'data_output/periodicity_score.csv'
 savetodir = 'plot_output'
 
 stat_df = pd.read_csv(file_path, index_col='zone_code').rename_axis(None)

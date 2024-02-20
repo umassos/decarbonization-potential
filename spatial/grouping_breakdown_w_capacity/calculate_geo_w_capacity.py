@@ -52,6 +52,6 @@ for idle_cap_percent in idle_cap_list:
     emissions = (allocation * all_region_mean)/work_per_dc
     allocation_df[idle_cap_percent] = emissions
 allocation_df.index.name = 'zonecode'
-allocation_df.to_csv("emissions.csv")
+allocation_df.to_csv("data_output/emissions.csv")
 
 

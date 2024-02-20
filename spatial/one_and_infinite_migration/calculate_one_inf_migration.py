@@ -11,6 +11,7 @@ import regions
 
 
 combined_carbon_file = os.path.join( '../..', 'shared_data/combined_carbon.csv')
+save_to_dir = "data_output"
 
 year = 2022
 groupings = ["Asia", "Americas", "Global", "Europe", "Oceania"]
@@ -61,5 +62,5 @@ for grouping in groupings:
     combined_df_std.loc["inf", grouping] = inf_migration_savings_std
     
 
-combined_df_mean.to_csv('savings_mean.csv')
-combined_df_std.to_csv('savings_std.csv')
+combined_df_mean.to_csv(f'{save_to_dir}/savings_mean.csv')
+combined_df_std.to_csv(f'{save_to_dir}/savings_std.csv')

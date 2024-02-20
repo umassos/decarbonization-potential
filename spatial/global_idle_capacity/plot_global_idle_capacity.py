@@ -12,8 +12,8 @@ sys.path.append(global_module)
 import graph_templates 
 
 
-file_path = 'emissions.csv'
-savetodir = 'plot_output'
+file_path = "data_output/emissions.csv"
+savetodir = "plot_output"
 df = pd.read_csv(file_path,index_col='zonecode').rename_axis(None)
 
 idle_cap_list = [i for i in range(0, 100, 10)]

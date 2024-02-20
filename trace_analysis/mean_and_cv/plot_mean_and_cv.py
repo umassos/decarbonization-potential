@@ -18,7 +18,7 @@ def annon(zonecode,x,y,ax,rot=0, flag=False,zorder=99):
     ax.annotate(name, xy=(x,y),xycoords='data',fontsize=tagfont, font=boldfont, rotation=rot,zorder=zorder)
 
 year = 2022
-file_path = f'data/mean_and_cv_{year}.csv'
+file_path = f'data_output/mean_and_cv_{year}.csv'
 savetodir = 'plot_output'
 
 

@@ -15,8 +15,8 @@ import graph_templates
 start_year = 2020
 end_year = 2022
 
-start_file = f'data/mean_and_cv_{start_year}.csv'
-end_file = f'data/mean_and_cv_{end_year}.csv'
+start_file = f'data_output/mean_and_cv_{start_year}.csv'
+end_file = f'data_output/mean_and_cv_{end_year}.csv'
 
 savetodir = 'plot_output'
 

@@ -8,7 +8,7 @@ sys.path.append(moduledir)
 
 import format_df 
 
-savetodir = 'data'
+savetodir = 'data_output'
 rawdatadir = "../../shared_data/electricty_maps_raw_data"
 
 files = os.listdir(rawdatadir)

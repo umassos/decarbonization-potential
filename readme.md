@@ -1,12 +1,16 @@
 ## Carbon Savings Upper Bound Analysis
-The aim of this repository is to provide source code for to reproduce the results of the following work: 
-***On the Limitations of Carbon-Aware Temporal and Spatial Workload Shifting in the Cloud***.
+The aim of this repository is to provide the source code that reproduce the results of the following work: 
+
+> Sukprasert, Thanathorn and Souza, Abel and Bashir, Noman and Irwin, David and Shenoy, Prashant, "On the Limitations of Carbon-Aware Temporal and Spatial Workload Shifting in the Cloud", in the 19th European Conference on Computer Systems (EuroSys)
+
+We conduct a detailed trace-driven analysis to understand the benefits and limitations of spatiotemporal workload scheduling for cloud workloads with different characteristics, e.g., job duration, deadlines, SLOs, memory footprint, etc., based on hourly variations in energy's carbon-intensity over three years across 123 distinct regions, which encompass most major cloud sites. For more information, please refer to the paper.
+
 ***
 
 ### Configurations 
 We run this experiment with 
 * Ubuntu 20.04.6
-* Python 3.8.10
+* Python 3.8+
 
 #### Python Modules 
 * pandas
@@ -23,11 +27,13 @@ To install the requirements run ```pip install -r requirements.txt```
 ****
 
 ### Raw Data Sources 
+The following datasets are required to generate our results:
+
 * **Carbon Intensity**: https://www.electricitymaps.com/data-portal 
 
 * **Google Latency**: https://lookerstudio.google.com/reporting/fc733b10-9744-4a72-a502-92290f608571/page/p_854mo2jmcd
 
-* **Google Trace**: https://github.com/google/cluster-data 
+* **Google Trace**: https://github.com/google/cluster-data (version 3)
 * **Azure Trace**: https://github.com/Azure/AzurePublicDataset
 
 ****
@@ -50,7 +56,14 @@ More details about the experiments are described in their respective diretories.
 Note that for any experiment/plotting script the code should be **run inside** that directory.
 
 To run any experiment, to go its directory and run
-```python3 <file_name>```
+```python3 <file_name>``` 
+
+The calculated result for each experiment will be stored in their own ```data_output``` directory and the plots of each calculated result will be stored in their own ```plot_output``` directory.
+
+For example to *calculate* mean and CV: <br>
+1. From the main directory, go to the *trace_analysis* directory by ```cd trace_analysis```
+2. In the *trace_analysis* directory go to *mean_and_cv* directory by ```cd mean_and_cv```
+3. In the *mean_and_cv* directory run ```python3 calculate_mean_and_cv.py``` to calculate mean and CV of the carbon intensity signal. 
 
 ****
 

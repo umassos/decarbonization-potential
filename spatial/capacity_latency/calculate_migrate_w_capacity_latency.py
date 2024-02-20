@@ -92,4 +92,4 @@ for idle_cap_percent in idle_cap_list:
         allocation_df.loc[latency_lim, idle_cap_percent] = emissions.sum()
 
 allocation_df.index.name = 'latency'
-allocation_df.to_csv("emissions.csv")
+allocation_df.to_csv("data_output/emissions.csv")

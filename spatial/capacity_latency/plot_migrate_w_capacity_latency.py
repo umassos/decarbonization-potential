@@ -11,7 +11,7 @@ sys.path.append(global_module)
 
 import graph_templates 
 
-file_path = 'emissions.csv'
+file_path = '"data_output/emissions.csv'
 savetodir = 'plot_output'
 
 idle_cap_list = [99,50]
