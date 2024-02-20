@@ -29,7 +29,7 @@ To install the requirements run ```pip install -r requirements.txt```
 ### Raw Data Sources 
 The following datasets are required to generate our results:
 
-* **Carbon Intensity**: https://www.electricitymaps.com/data-portal 
+* **Carbon Intensity**: https://www.electricitymaps.com/data-portal: Our experiments use carbon intensity data from 123 regions worldwide. The 123 regions are list in [global_modules/static_files/name_stats.csv](../global_modules/static_files/name_stats.csv)
 
 * **Google Latency**: https://lookerstudio.google.com/reporting/fc733b10-9744-4a72-a502-92290f608571/page/p_854mo2jmcd
 

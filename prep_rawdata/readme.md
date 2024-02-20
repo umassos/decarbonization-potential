@@ -6,6 +6,7 @@ All the processed data is saved to [shared_data/combined_carbon.csv](../shared_d
 [combined_carbon.py](combined_carbon.py): 
 * Required file: Raw Carbon intensity signal from Electricity Maps
 * Clean up the raw data and extract the carbon intensity columns of all the regions and put all the carbon signals in one file for a year.
+* Our experiments use carbon intensity data from 123 regions worldwide. The 123 regions are list in [global_modules/static_files/name_stats.csv](../global_modules/static_files/name_stats.csv)
 <br>
 
 [mean_order.py](mean_order.py): 
@@ -16,7 +17,7 @@ All the processed data is saved to [shared_data/combined_carbon.csv](../shared_d
 [mean_stats.py](mean_stats.py): 
 * Required file: Combined carbon file from [combined_carbon.py](combined_carbon.py)
 * Get mean from year 2020-2022
-<br>
+
 ***
 
 ### Process Google Latency Matrix
