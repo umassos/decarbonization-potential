@@ -14,8 +14,8 @@ import graph_templates
 
 savetodir = 'plot_output'
 
-mean_df = pd.read_csv('savings_mean.csv', index_col='migration').rename_axis(None).T
-std_df = pd.read_csv('savings_std.csv', index_col='migration').rename_axis(None).T
+mean_df = pd.read_csv('data_output/savings_mean.csv', index_col='migration').rename_axis(None).T
+std_df = pd.read_csv('data_output/savings_std.csv', index_col='migration').rename_axis(None).T
 
 sns.set()
 sns.set_style('ticks')
@@ -42,8 +42,6 @@ fig, ax = plt.subplots(figsize=(4,3.5))
 
 mean_df.plot.bar(ax=ax,
                 yerr=std_df, 
-                #  yerr=max_df,
-                #  yerr=min_df,
                 capsize=4, 
                 facecolor="#FFFF",
                 legend=False
@@ -68,13 +66,11 @@ plt.legend(
     bbox_to_anchor=(0.,0.83,1,0.2),
     columnspacing=1,
     mode='expand',
-    # loc="lower left",
     ncol=len(legend_label),
     frameon=False,
     prop=dict(size=legendsize), 
     handletextpad=0.35, 
 )
-ax.spines[['right', 'top']].set_visible(False)
 y_lower = 0
 y_upper = 100
 step = 25
@@ -86,7 +82,7 @@ plt.xlabel("Latency Limit (ms)",fontsize=14, color="#FFFF")
 
 plt.ylim([y_lower,y_upper])
 
-savename = f"{savetodir}/migrate_geo_lowest"
+savename = f"{savetodir}/migrate_geo_lowest.pdf"
 plt.tight_layout()
 plt.savefig(savename, dpi=300, bbox_inches='tight',pad_inches = 0.1)
 plt.close()

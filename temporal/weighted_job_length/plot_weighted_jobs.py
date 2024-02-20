@@ -11,7 +11,7 @@ sys.path.append(moduledir)
 from check_dir import check_dir
 import graph_templates
 
-weight_mode = 'equal' # equal, azure, gcp
+weight_mode = 'gcp' # equal, azure, gcp
 slack = 24*365
 
 main_data_dir = f'data_output/{weight_mode}'
@@ -49,6 +49,7 @@ plt.xlabel("Slack",fontsize=14, color="#FFFF")
 
 plt.tight_layout()
 
-savename = os.path.join(save_to_dir, f"slack_{slack}")
+savename = os.path.join(save_to_dir, f"slack_{slack}.pdf")
+# savename = os.path.join(save_to_dir, f"slack_{slack}")
 plt.savefig(savename, dpi=300, bbox_inches='tight',pad_inches = 0.1)
 plt.close()

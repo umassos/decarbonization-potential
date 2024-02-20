@@ -4567,5 +4567,4 @@ temporal/data_output/absolute_slack_2022_processed/abs/job_96/slack_8760/interru
 temporal/data_output/absolute_slack_2022_processed/abs/job_96/slack_8760/non_interrupt.csv
 temporal/data_output/absolute_slack_2022_processed/abs/job_96/slack_8760/slack0.csv
 shared_data/raw_gcp_latency.csv
-shared_data/combined_carbon.csv
 shared_data/gcp_latency_matrix.csv

@@ -11,7 +11,7 @@ sys.path.append(global_module)
 
 import graph_templates 
 
-file_path = '"data_output/emissions.csv'
+file_path = 'data_output/emissions.csv'
 savetodir = 'plot_output'
 
 idle_cap_list = [99,50]
@@ -85,7 +85,8 @@ plt.legend(frameon=False, fontsize=12,
 plt.grid(alpha=0.7)
 plt.tight_layout()
 
-savename = f"{savetodir}/cap_gcp_latency"
+# savename = f"{savetodir}/cap_gcp_latency"
+savename = f"{savetodir}/cap_gcp_latency.pdf"
 
 plt.savefig(savename, dpi=300, bbox_inches='tight',pad_inches = 0.1)
 plt.close()
