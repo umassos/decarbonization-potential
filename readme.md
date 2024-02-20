@@ -1,16 +1,18 @@
 ## Carbon Savings Upper Bound Analysis
-The aim of this repository is to provide the source code that reproduce the results of the following work: 
+The aim of this repository is to provide the code to reproduce the results of the following work: 
 
 > Sukprasert, Thanathorn and Souza, Abel and Bashir, Noman and Irwin, David and Shenoy, Prashant, "On the Limitations of Carbon-Aware Temporal and Spatial Workload Shifting in the Cloud", in the 19th European Conference on Computer Systems (EuroSys)
 
-We conduct a detailed trace-driven analysis to understand the benefits and limitations of spatiotemporal workload scheduling for cloud workloads with different characteristics, e.g., job duration, deadlines, SLOs, memory footprint, etc., based on hourly variations in energy's carbon-intensity over three years across 123 distinct regions, which encompass most major cloud sites. For more information, please refer to the paper.
+In this work, we conduct a detailed trace-driven analysis to understand the benefits and limitations of spatiotemporal workload scheduling for cloud workloads with different characteristics, e.g., job duration, deadlines, SLOs, memory footprint, etc., based on hourly variations in energy's carbon-intensity over three years across 123 distinct regions, which encompass most major cloud sites. For more information, please refer to the paper.
 
 ***
 
 ### Configurations 
 We run this experiment with 
-* Ubuntu 20.04.6
+* Ubuntu 20.04+
 * Python 3.8+
+
+However, this codebase should work on any Unix based system with Python 3.8+ installed.
 
 #### Python Modules 
 * pandas
@@ -20,7 +22,7 @@ We run this experiment with
 * seaborn
 
 We generated [requirements.txt](requirements.txt) for the required python modules. <br>
-We suggest to create a Python virtual environment and install modules inside of this virtual environment.
+We suggest to create and load a Python [virtual environment](https://docs.python.org/3/library/venv.html) and install modules inside of this virtual environment.
 
 To install the requirements run ```pip install -r requirements.txt```
 
@@ -29,12 +31,12 @@ To install the requirements run ```pip install -r requirements.txt```
 ### Raw Data Sources 
 The following datasets are required to generate our results:
 
-* **Carbon Intensity**: https://www.electricitymaps.com/data-portal: Our experiments use carbon intensity data from 123 regions worldwide. The 123 regions are listed in [global_modules/static_files/name_stats.csv](global_modules/static_files/name_stats.csv)
+* **Carbon Intensity**: https://www.electricitymaps.com/data-portal: Our experiments use carbon intensity data from 123 regions worldwide. The 123 regions are list in [global_modules/static_files/name_stats.csv](global_modules/static_files/name_stats.csv)
 
-* **Google Latency**: https://lookerstudio.google.com/reporting/fc733b10-9744-4a72-a502-92290f608571/page/p_854mo2jmcd
+* **Google Latency**: https://lookerstudio.google.com/reporting/fc733b10-9744-4a72-a502-92290f608571/page/p_854mo2jmcd (from the AT&T Center for Virtualization at Southern Methodist University)
 
 * **Google Trace**: https://github.com/google/cluster-data (version 3)
-* **Azure Trace**: https://github.com/Azure/AzurePublicDataset
+* **Azure Trace**: https://github.com/Azure/AzurePublicDataset (V2)
 
 ****
 
@@ -45,16 +47,16 @@ The following datasets are required to generate our results:
 ***
 
 ### Experiment Directories 
+
+Details about each one of experiments are described in their respective diretories:
+
 [sample_trace](sample_trace): sample carbon intensity trace to show variation across time and regions and the regions' respective energy mix. <br>
 [trace_analysis](trace_analysis): mean and cv, change over time, periodicity score <br>
 [spatial](spatial): grouping breakdown, global idle capacity, capacity and latency, one and infinite migration <br>
 [temporal](temporal): deferrability, interruptibility, combined deferrability and interruptibility, weighted job legths, vary slack <br>
 [temporal_spatial_combined](temporal_spatial_combined): combined savings for temporal and spatial*
 
-More details about the experiments are described in their respective diretories.
-
-Note that for any experiment/plotting script the code should be **run inside** that directory.
-
+Note that to reproduce any of experiment and plotting scripts, the code should be **run inside** their respective directory.
 To run any experiment, to go its directory and run
 ```python3 <file_name>``` 
 
@@ -68,14 +70,15 @@ For example to *calculate* mean and CV: <br>
 ****
 
 ### Non-Experiment Directories 
-[prep_rawdata](prep_rawdata): Prepare raw data for analyses and experiments <br>
-[shared_data](shared_data): A directory that has files that are shared across multiple experiments <br>
-[global_modules](global_modules): Contains helper functions, flag images, and fonts
+The following are pre-processed and utility scripts organized in different directories:
 
-*** 
+[prep_rawdata](prep_rawdata): Prepare raw data for analyses and experiments.<br>
+[shared_data](shared_data): A directory that has files that are shared across multiple experiments.<br>
+[global_modules](global_modules): Contains helper functions, flag images, and fonts.
 
-### LICENSE
+Please, access the directories for more information.
 
+### License
 * The Python codebase available in here follows the Apache v2 License unless otherwise stated.
-* The Google Latency dataset has been created by the from the AT&T Center for Virtualization at the Southern Methodist University and follows the Apache v2 License.
-* The Electricity Maps Carbon Intensity is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
+* The *Google Latency* dataset has been created by the from the AT&T Center for Virtualization at the Southern Methodist University and follows the Apache v2 License.
+* The *Electricity Maps Carbon Intensity* is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
