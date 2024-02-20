@@ -76,8 +76,6 @@ For example to *calculate* mean and CV: <br>
 
 ### LICENSE
 
-License
-
 * The Python codebase available in here follows the Apache v2 License unless otherwise stated.
 * The Google Latency dataset has been created by the from the AT&T Center for Virtualization at the Southern Methodist University and follows the Apache v2 License.
 * The Electricity Maps Carbon Intensity is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
