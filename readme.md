@@ -19,7 +19,7 @@ We run this experiment with
 * matplotlib 
 * seaborn
 
-We generated [requirement.txt](requirement.txt) for the required python modules. <br>
+We generated [requirements.txt](requirements.txt) for the required python modules. <br>
 We suggest to create a Python virtual environment and install modules inside of this virtual environment.
 
 To install the requirements run ```pip install -r requirements.txt```
