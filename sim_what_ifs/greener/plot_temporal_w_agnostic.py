@@ -17,7 +17,7 @@ carbon_aware_file = 'data_output/processed_weighted_interrupt/slack_8760.csv'
 carbon_agnostic_file = 'data_output/processed_weighted_slack0/slack_8760.csv'
 
 
-save_to_dir = 'plot_output/temporal_scenario_v2'
+save_to_dir = 'plot_output/temporal_scenario'
 check_dir(save_to_dir)
 
 selected_region = "US-CAL-CISO"

@@ -17,7 +17,7 @@ temporal_file = 'data_output/processed_weighted_job_v4/equal.csv'
 spatial_file = 'data_output/spatial_savings_v4/mean_inf_spatial.csv'
 
 
-save_to_dir = 'plot_output/added_error'
+save_to_dir = 'plot_output/error'
 check_dir(save_to_dir)
 
 error_list = range(0, 100+1, 20)
