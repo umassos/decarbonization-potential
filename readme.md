@@ -139,6 +139,7 @@ python3 calculate_mean_and_cv.py
 ### Other Sources 
 * The [shared_data](shared_data) directory contains data that are sharedacross multiple experiments. 
 
+* [global_modules](global_modules): Contains helper functions, flag images, and fonts.
 * The flag images are from: https://github.com/gosquared/flags/blob/master/flags/flags-iso/flat/16/US.png
 
 
