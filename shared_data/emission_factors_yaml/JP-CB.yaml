@@ -1,0 +1,37 @@
+bounding_box:
+  - - 135.84
+    - 33.82
+  - - 138.72
+    - 37.17
+capacity:
+  biomass: 352.6
+  geothermal: 2
+  coal: 5170
+  gas: 14136
+  hydro: 2180
+  hydro storage: 3320
+  nuclear: 3617
+  oil: 2275
+  solar: 550
+  wind: 210
+contributors:
+  - tmslaine
+  - lorrieq
+  - pierresegonne
+  - wobniarin
+disclaimer: The data provider (Chubu Electric Power Co.,Inc.) provides live data only for solar and unknown. We are working on improving the data quality for this zone.
+emissionFactors:
+  lifecycle:
+    unknown:
+      _comment: 'Source: Derived from 2016-2019 Chubu area supply statistics and 2017-2018
+        Chubu Electric report'
+      _url:
+        - https://www.chuden.co.jp/corporate/publicity/datalist/juyo/dat_kousei/index.html
+        - http://denki-yoho.chuden.jp/denki_yoho_content_data/areabalance_current_term.csv
+      source: assumes 26.3% coal, 2.2% oil, 62.5% gas, 9% hydro and wind
+      value: 538
+parsers:
+  consumptionForecast: JP.fetch_consumption_forecast
+  price: JP.fetch_price
+  production: JP.fetch_production
+timezone: Asia/Tokyo

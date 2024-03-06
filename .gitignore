@@ -1,1 +1,3 @@
 .venv
+# sim_temporal/data_output/*
+# sim_what_ifs/prediction_error/data_output/temporal_shifting

@@ -40,12 +40,11 @@ for grouping in groupings:
 
     w_idle_mean = w_idle_emissions.mean(numeric_only=True)
     zero_idle_mean = zero_idle_emissions.mean(numeric_only=True)
+    
     if math.isnan(w_idle_mean): 
         w_idle_mean = 0
 
     mean_savings =  zero_idle_mean - w_idle_mean
-
-
     conf_interval = list(st.t.interval(0.95, len(members)-1, loc=mean_savings))
     
     high_end = conf_interval[1] - mean_savings

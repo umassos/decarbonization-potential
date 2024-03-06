@@ -1,0 +1,23 @@
+bounding_box:
+  - - 122.43816165500004
+    - 23.756984768000052
+  - - 131.82789147200003
+    - 28.368963934000078
+contributors:
+  - tmslaine
+  - lorrieq
+capacity:
+  biomass: 49
+  geothermal: 0
+  coal: 1629
+  gas: 326
+  hydro storage: 0
+  nuclear: 0
+  oil: 189.78
+  wind: 28
+disclaimer: The data provider (Okiden Electric Power Co.,Inc.) provides live data only for solar and unknown. We are working on improving the data quality for this zone.
+parsers:
+  consumptionForecast: JP.fetch_consumption_forecast
+  price: JP.fetch_price
+  production: JP.fetch_production
+timezone: Asia/Tokyo

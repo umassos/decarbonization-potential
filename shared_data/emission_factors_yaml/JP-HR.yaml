@@ -1,0 +1,25 @@
+bounding_box:
+  - - 135.8
+    - 35.39
+  - - 137.75
+    - 37.9
+contributors:
+  - tmslaine
+  - lorrieq
+  - pierresegonne
+  - wobniarin
+capacity:
+  biomass: 700
+  geothermal: 0
+  coal: 2900
+  gas: 1194.7
+  hydro: 1934
+  nuclear: 1746
+  oil: 1750
+  wind: 229.6
+disclaimer: The data provider (Hokuriku Electric Power Co.,Inc.) provides live data only for solar and unknown. We are working on improving the data quality for this zone.
+parsers:
+  consumptionForecast: JP.fetch_consumption_forecast
+  price: JP.fetch_price
+  production: JP.fetch_production
+timezone: Asia/Tokyo
