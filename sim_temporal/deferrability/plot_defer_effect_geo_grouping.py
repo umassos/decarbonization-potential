@@ -16,7 +16,7 @@ import graph_templates
 
 
 mode = "absolute_slack"
-slack = 24
+slack = 24*365
 
 main_data_dir = f'data_output/{mode}'
 save_to_dir = 'plot_output'

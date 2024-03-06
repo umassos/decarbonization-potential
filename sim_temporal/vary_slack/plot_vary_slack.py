@@ -11,7 +11,7 @@ moduledir = os.path.join(currdir, "../..","global_modules")
 sys.path.append(moduledir)
 
 import graph_templates
-file_path = 'data_output/mean.csv'
+file_path = 'data_output/emissions.csv'
 save_to_dir = 'plot_output'
 
 df = pd.read_csv(file_path, index_col='slack').rename_axis(None)

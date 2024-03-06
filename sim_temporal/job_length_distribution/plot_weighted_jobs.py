@@ -11,12 +11,12 @@ sys.path.append(moduledir)
 from check_dir import check_dir
 import graph_templates
 
-weight_mode = 'equal' # equal, azure, gcp
+weight_mode = 'gcp' # equal, azure, gcp
 slack = 24*365
 
 
-main_data_dir = f'data_output_v2/{weight_mode}'
-save_to_dir = f'plot_output_v2/{weight_mode}'
+main_data_dir = f'data_output/{weight_mode}'
+save_to_dir = f'plot_output/{weight_mode}'
 check_dir(save_to_dir)
 
 mean_file = os.path.join(main_data_dir, "mean.csv")

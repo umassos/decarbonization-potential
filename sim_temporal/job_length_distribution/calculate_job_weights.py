@@ -16,7 +16,7 @@ weight_mode = 'equal' # equal, azure, gcp
 mode = "absolute_slack"
 
 main_data_dir = f'../data_output/{mode}_2022_processed/abs'
-main_save_to_dir = 'data_output_v2'
+main_save_to_dir = 'data_output'
 
 
 slack_list = [24*365, 24]

@@ -9,7 +9,7 @@ sys.path.append(moduledir)
 from check_dir import check_dir
 import regions
 
-main_data_dir = 'data_output/temporal_shifting_v'
+main_data_dir = 'data_output/temporal_shifting'
 main_save_to_dir = 'data_output/processed_weighted_slack0'
 check_dir(main_save_to_dir)
 

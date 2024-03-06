@@ -13,8 +13,8 @@ sys.path.append(moduledir)
 from check_dir import check_dir
 import graph_templates
 
-temporal_file = 'data_output/processed_weighted_job_v4/equal.csv'
-spatial_file = 'data_output/spatial_savings_v4/mean_inf_spatial.csv'
+temporal_file = 'data_output/processed_weighted_job/equal.csv'
+spatial_file = 'data_output/spatial_savings/mean_inf_spatial.csv'
 
 
 save_to_dir = 'plot_output/error'
