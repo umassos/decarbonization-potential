@@ -74,45 +74,44 @@ deactivate
     * Otherwise, copy the [provided_data/combined_carbon.csv](provided_data/combined_carbon.csv) to the [shared_data](shared_data) directory. 
 
 
+* **Google Latency**: https://lookerstudio.google.com/reporting/fc733b10-9744-4a72-a502-92290f608571/page/p_854mo2jmcd (from the AT&T Center for Virtualization at Southern Methodist University)
+
+* **Google Trace**: https://github.com/google/cluster-data (version 3)
+* **Azure Trace**: https://github.com/Azure/AzurePublicDataset (V2)
 
 
 ### 3. Running Experiments
 
-The directories that starts with ```sim_``` are the directories containing different groups of simulation. 
+The directories that starts with ```sim_``` are the directories with different groups of simulations. 
 
-The table below shows the directory name as well as the 
+The table below shows the directory names that start with ```sim```, their sub-directories that contain the simulations as well as the respective figures. 
 
-| Diretory Name             | Dimension | Figure(s) |
-| :---------------- | :------: | ----: |
-| Python Hat        |   True   | 23.99 |
-| SQL Hat           |   True   | 23.99 |
-| Codecademy Tee    |  False   | 19.99 |
-| Codecademy Hoodie |  False   | 42.99 |
-
-
-where you can run simulations and plot the results. 
+| Main Simulation Diretory Name | Sub-directories | Figure(s) |
+| :------------------------ | :-------------------------- | --------------: |
+| sample_trace        |  carbon_trace, energy_mix  | 1(a)-(b) |
+| trace_analysis       |  mean_and_cv, change_over_time, periodicity    | 3(a)-(b), 4 |
+| spatial           | geo_grouping_capacity, global_idle_capacity, capacity_and_latency, one_and_infinite_migration   | 5(a)-(c), 6(a)-(b)|
+| temporal    |  deferrability, interruptibility, deferrability and interruptibility combined, job_length_distribution, vary_slack    | 7(a)-(b), 8(a)-(b), 9(a)-(b), 10(a)-(b) |
+| what_ifs |  mixed_workload, greener, temporal_spatial_combined  | 11(a)-(d), 12|
 
 
 
 
-The table shows the directory names and their respective dimensions that they explore as well as the corresponding figures on the paper. 
+Each simulation is run **inside** its own sub-directory. 
 
-| Diretory Name             | Dimension | Figure(s) |
-| :---------------- | :------: | ----: |
-| Python Hat        |   True   | 23.99 |
-| SQL Hat           |   True   | 23.99 |
-| Codecademy Tee    |  False   | 19.99 |
-| Codecademy Hoodie |  False   | 42.99 |
-
-
-Each simulation is run **inside** its own directory. To go to the directory:
+To access the main simulation directory:
 
 ```
-cd ```sim_<directory name>```
+cd  sim_<directory name>
 ```
 
+To access the simulation directory
 
-In the directory, to run any script: 
+```
+cd <simulation sub-directotry name>
+```
+
+In the simulation directory, to run any script: 
 ```
 python3 <file_name>
 ``` 
@@ -120,9 +119,27 @@ python3 <file_name>
 The calculated result for each simulation will be stored in their own ```data_output``` directory and the plots of each calculated result will be stored in their own ```plot_output``` directory.
 
 For example to *calculate* mean and CV: <br>
-1. From the main directory, go to the *trace_analysis* directory by ```cd sim_trace_analysis```
-2. In the *trace_analysis* directory go to *mean_and_cv* directory by ```cd mean_and_cv```
-3. In the *mean_and_cv* directory run ```python3 calculate_mean_and_cv.py``` to calculate mean and CV of the carbon intensity signal. 
+1. From the main directory, go to the *trace_analysis* directory by 
+```
+cd sim_trace_analysis
+```
+2. In the *trace_analysis* directory go to *mean_and_cv* directory by 
+```
+cd mean_and_cv
+```
+3. In the *mean_and_cv* directory, to calculate mean and CV of the carbon intensity signal, run 
+```
+python3 calculate_mean_and_cv.py
+``` 
+### Other Sources 
+* The [shared_data](shared_data) directory contains data that are sharedacross multiple experiments. 
+
+* The flag images are from: https://github.com/gosquared/flags/blob/master/flags/flags-iso/flat/16/US.png
 
 
-The flag images are from:
+
+### License
+* The Python codebase available in here follows the Apache v2 License unless otherwise stated.
+* The *Google Latency* dataset has been created by the from the AT&T Center for Virtualization at the Southern Methodist University and follows the Apache v2 License.
+* The *Electricity Maps Carbon Intensity* is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
+
