@@ -12,10 +12,10 @@ In this work, we conduct a detailed trace-driven analysis to understand the bene
 * Ubuntu 20.04+
 * Python 3.8+
 
-We run this experiment with in the above setting. However, this codebase should work on any Unix based system with Python 3.8+ installed.
+We have run this experiment with in the above setting. However, this codebase should work on any Unix based system with Python 3.8+ installed.
 
-We generated [requirements.txt](requirements.txt) for the required python modules. <br>
-We suggest to create and load a Python [virtual environment](https://docs.python.org/3/library/venv.html) and install modules inside of this virtual environment.
+In addirion, we have generated a [requirements.txt](requirements.txt) for the required Python modules. <br>
+We suggest you to create and load a Python [virtual environment](https://docs.python.org/3/library/venv.html) and install modules inside of this virtual environment.
 
 #### Python Modules 
 * pandas
