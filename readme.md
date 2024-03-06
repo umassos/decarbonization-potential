@@ -7,6 +7,8 @@ In this work, we conduct a detailed trace-driven analysis to understand the bene
 
 ***
 
+This repository is also available on [Zenodo](https://zenodo.org/records/10790855)
+
 ### Requirements 
 
 * Ubuntu 20.04+
