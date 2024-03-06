@@ -18,4 +18,5 @@ The energy mix for all 123 regions are provided in the ```data_output``` directo
 
 This analysis involves selecting the regions to plot using the ```plot_energy_mix.py``` script from the data in ```data_output```. The plot output will be in the ```plot_output``` directory.
 
-**Please contact Electricity Maps to collect raw carbon intensity with energy mix.**
+**Please contact Electricity Maps to collect raw carbon intensity with energy mix.
+or check this [link](https://www.electricitymaps.com/research)**

@@ -1,9 +1,19 @@
 ## Temporal
-1. Experiment: [experiment_vary_job_slack.py](experiment_vary_job_slack.py). Change ```slack_list``` and ```job_length_list``` for different job lengths and slacks. Required Combined carbon file from [prep_rawdata](../prep_rawdata). 
+
+Each sub-directories are individual simulations. To run each simulation go to the sub-directory by 
+```
+cd <sub diretory name>
+```
+
+Each simulation involves two steps:
+
+
+1. Experiment: [experiment_vary_job_slack.py](experiment_vary_job_slack.py). Change ```slack_list``` and ```job_length_list``` for different job lengths and slacks. Required Combined carbon file from [process_raw_data](../process_raw_data). 
 
 2. Process experiment results: [process_vary_job_slack_data.py](process_vary_job_slack_data.py). 
 
-The outputs from 1 and 2 are in ```temporal/data_output```
+The outputs from 1 and 2 are in [data_output](data_output) directory. 
+
 
 3. Calculate and plot different dimensions in the subdirectories (i.e.run the script inside each directory).
 

@@ -3,7 +3,7 @@ The aim of this repository is to provide the code to reproduce the results of th
 
 > Sukprasert, Thanathorn and Souza, Abel and Bashir, Noman and Irwin, David and Shenoy, Prashant, "On the Limitations of Carbon-Aware Temporal and Spatial Workload Shifting in the Cloud", in the 19th European Conference on Computer Systems (EuroSys)
 
-In this work, we conduct a detailed trace-driven analysis to understand the benefits and limitations of spatiotemporal workload scheduling for cloud workloads with different characteristics, e.g., job duration, deadlines, SLOs, memory footprint, etc., based on hourly variations in energy's carbon-intensity over three years across 123 distinct regions, which encompass most major cloud sites. For more information, please refer to the paper.
+In this work, we conduct a detailed trace-driven analysis to understand the benefits and limitations of spatiotemporal workload scheduling for cloud workloads with different characteristics, e.g., job duration, deadlines, etc., based on hourly variations in energy's carbon-intensity over three years across 123 distinct regions, which encompass most major cloud sites. For more information, please refer to the paper.
 
 ***
 
@@ -65,11 +65,11 @@ deactivate
         4. To download the file for each zone in the region click the download button. 
         5. Enter the information and click 'Submit', the click 'Download data'
         6. Place the downloaded data in the [downloaded_carbon_data](downloaded_carbon_data) directory 
-        7. Process the downloaded data in [process_raw_carbon_data](process_raw_carbon_data) directory 
+        7. Process the downloaded data in [process_raw_data](process_raw_data) directory 
 
     * Alternatively, the carbon intensity data from year 2020-2022 are provided in the [provided_data/combined_carbon.csv](provided_data/combined_carbon.csv) directory 
 
-    * If the downloaded data is used, the processed data from the [process_raw_carbon_data/process_data.py](process_raw_carbon_data/process_data.py) directory will be saved to the [shared_data](shared_data) directory. 
+    * If the downloaded data is used, the processed data from the [process_raw_data/process_data.py](process_raw_data/process_carbon_data.py) directory will be saved to the [shared_data](shared_data) directory. 
 
     * Otherwise, copy the [provided_data/combined_carbon.csv](provided_data/combined_carbon.csv) to the [shared_data](shared_data) directory. 
 
@@ -79,6 +79,13 @@ deactivate
 * **Google Trace**: https://github.com/google/cluster-data (version 3)
 * **Azure Trace**: https://github.com/Azure/AzurePublicDataset (V2)
 
+#### Raw Data Processing 
+[process_raw_data](process_raw_data): This directory contains scripts to process the raw **carbon intensity** and **latency** data. 
+
+[shared_data](shared_data): This directory is where the processed carbon intensity data will be saved or copied to (See the instruction above). This directory also contains a sample of raw and processed Google latency matrix as well as the emission factors from Electricity Maps. 
+
+
+ All the **raw** and **processed** data are stored in this directory. The data is shared across multiple experiments. 
 
 ### 3. Running Experiments
 
@@ -90,11 +97,9 @@ The table below shows the directory names that start with ```sim```, their sub-d
 | :------------------------ | :-------------------------- | --------------: |
 | sample_trace        |  carbon_trace, energy_mix  | 1(a)-(b) |
 | trace_analysis       |  mean_and_cv, change_over_time, periodicity    | 3(a)-(b), 4 |
-| spatial           | geo_grouping_capacity, global_idle_capacity, capacity_and_latency, one_and_infinite_migration   | 5(a)-(c), 6(a)-(b)|
-| temporal    |  deferrability, interruptibility, deferrability and interruptibility combined, job_length_distribution, vary_slack    | 7(a)-(b), 8(a)-(b), 9(a)-(b), 10(a)-(b) |
-| what_ifs |  mixed_workload, greener, temporal_spatial_combined  | 11(a)-(d), 12|
-
-
+| spatial           | geo_grouping_capacity, global_idle_capacity, capacity_and_latency, one_and_inf   | 5(a)-(c), 6(a)-(b)|
+| temporal    |  deferrability, interruptibility, deferrability_and_interruptibility_combined, job_length_distribution, vary_slack    | 7(a)-(b), 8(a)-(b), 9(a)-(b), 10(a)-(b) |
+| what_ifs |  mixed_workload, prediction_error, greener, temporal_spatial_combined  | 11(a)-(d), 12|
 
 
 Each simulation is run **inside** its own sub-directory. 
